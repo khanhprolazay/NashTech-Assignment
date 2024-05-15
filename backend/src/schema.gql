@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Role {
+  id: ID!
+  name: String!
+  users: [User!]!
+}
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+  roleId: String!
+  role: Role!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  user(id: String!): User!
+  users: [User!]!
+  role(id: String!): User!
+  roles: [User!]!
+}
+
+type Mutation {
+  editUser(editUserDto: EditUserDto!): User!
+}
+
+input EditUserDto {
+  id: String!
+  name: String!
+  roleId: String!
+}
